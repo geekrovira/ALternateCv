@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Castañeda Rovira - Currículum</title>
+    <!-- Google Fonts: Inter como fallback si Segoe UI no es accesible fácilmente via CDN, o para mantener consistencia con las instrucciones generales. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables CSS basadas en el sistema de diseño */
+        :root {
+            --color-primary: #4CAF50;
+            --color-secondary: #2196F3;
+            --color-accent: #FFC107;
+            --color-background: #1A1D2B;
+            --color-surface: #252B41;
+            --color-text-primary: #E0E0E0;
+            --color-text-secondary: #B0B0B0;
+            --color-text-muted: #808080;
+            --color-interactive-elements: #4CAF50;
+            --color-red-percentage: #F44336;
+            --color-blue-percentage: #2196F3;
+            --color-green-percentage: #8BC34A;
+            --color-progress-bar-fill: #4CAF50;
+            --color-progress-bar-empty: #3A3F57;
+            --color-border: #3A3F57;
+
+            --font-family: 'Inter', sans-serif; /* Usando Inter como una alternativa robusta */
+            --spacing-unit: 8px;
+            --border-radius-card: 8px;
+            --border-radius-button: 4px;
+            --border-radius-tag: 4px;
+        }
+
+        /* Estilos globales */
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            background-color: var(--color-background);
+            color: var(--color-text-secondary);
+            display: flex; /* Usar flexbox para el layout principal */
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevenir scroll horizontal */
+        }
+
+        /* Contenedor principal para el layout de dos columnas */
+        .container {
+            display: flex;
+            width: 100%;
+            flex-direction: column; /* Por defecto en móvil, columna */
+        }
+
+        /* Sidebar de navegación */
+        .sidebar {
+            background-color: var(--color-background);
+            width: 100%; /* Ancho completo en móvil */
+            padding: calc(var(--spacing-unit) * 3);
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--color-border); /* Separador en móvil */
+        }
+
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .sidebar-profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--color-primary);
+            object-fit: cover;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .sidebar-profile h1 {
+            font-size: 24px; /* h1 */
+            font-weight: bold;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .sidebar-profile p {
+            font-size: 14px; /* body */
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .sidebar-profile .contact-info {
+            font-size: 12px; /* small */
+            color: var(--color-text-muted);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        .sidebar-profile .contact-info a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: var(--spacing-unit) / 2;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            border-radius: var(--border-radius-button);
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 14px; /* button */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .sidebar-nav a:hover {
+            background-color: rgba(76, 175, 80, 0.1); /* hover de secondary button */
+            color: var(--color-text-primary);
+        }
+
+        .sidebar-nav a.active {
+            background-color: var(--color-interactive-elements);
+            color: #FFFFFF;
+        }
+
+        .sidebar-nav a svg {
+            margin-right: var(--spacing-unit);
+            width: 20px;
+            height: 20px;
+            fill: currentColor; /* Para que el color del SVG cambie con el color del texto */
+        }
+
+        /* Área de contenido principal */
+        .main-content {
+            flex-grow: 1;
+            padding: calc(var(--spacing-unit) * 3);
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 3); /* Espacio entre secciones */
+        }
+
+        /* Estilo de las tarjetas (cards) */
+        .card {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius-card);
+            border: 1px solid var(--color-border);
+            padding: calc(var(--spacing-unit) * 3);
+        }
+
+        .card h2 {
+            font-size: 20px; /* h2 */
+            font-weight: bold;
+            color: var(--color-text-primary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: var(--spacing-unit);
+        }
+
+        /* Tipografía específica */
+        h3 {
+            font-size: 16px; /* h3 */
+            font-weight: bold;
+            color: var(--color-text-primary);
+            margin-top: calc(var(--spacing-unit) * 2);
+            margin-bottom: var(--spacing-unit);
+        }
+
+        p {
+            font-size: 14px; /* body */
+            line-height: 1.6;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        small {
+            font-size: 12px; /* small */
+            color: var(--color-text-muted);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            margin-bottom: var(--spacing-unit);
+            position: relative;
+            padding-left: calc(var(--spacing-unit) * 2);
+        }
+
+        ul li::before {
+            content: '•'; /* Bullet point estilizado */
+            color: var(--color-primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* Botones */
+        .button-primary {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+            border-radius: var(--border-radius-button);
+            padding: 10px 20px;
+            font-size: 14px; /* button */
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-primary:hover {
+            background-color: #66BB6A; /* hover de primary button */
+        }
+
+        /* Tags de habilidades */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-unit);
+        }
+
+        .skill-tag {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+            border-radius: var(--border-radius-tag);
+            padding: 4px 8px;
+            font-size: 12px; /* tag */
+            white-space: nowrap;
+        }
+
+        /* Estilo para los enlaces de proyectos */
+        .project-link {
+            display: block;
+            background-color: rgba(76, 175, 80, 0.1); /* Ligero fondo para el enlace */
+            color: var(--color-text-primary);
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-radius: var(--border-radius-button);
+            text-decoration: none;
+            margin-bottom: var(--spacing-unit);
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            background-color: rgba(76, 175, 80, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row; /* En desktop, dos columnas */
+            }
+
+            .sidebar {
+                width: 280px; /* Ancho fijo para la sidebar en desktop */
+                min-width: 280px;
+                border-bottom: none;
+                border-right: 1px solid var(--color-border); /* Separador vertical */
+                position: sticky; /* Sidebar pegajosa */
+                top: 0;
+                height: 100vh; /* Ocupa toda la altura de la ventana */
+                overflow-y: auto; /* Scroll si el contenido es largo */
+            }
+
+            .main-content {
+                padding: calc(var(--spacing-unit) * 4); /* Más padding en desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <!-- Placeholder para la imagen del robot -->
+                <img src="https://placehold.co/100x100/4CAF50/FFFFFF?text=BRUNO" alt="Imagen de perfil de Bruno">
+                <h1>BRUNO CASTAÑEDA ROVIRA</h1>
+                <p>Gerente de TI | Gestión de Infraestructura | Ciberseguridad | Digital Transformation | Innovation Líder de Proyectos</p>
+                <div class="contact-info">
+                    <a href="tel:+7222020930">+7222020930</a>
+                    <a href="mailto:bruno.castaneda.rovira@gmail.com">bruno.castaneda.rovira@gmail.com</a>
+                    <span>Toluca/CDMX, México</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#resumen" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z" fill="currentColor"/>
+                        </svg>
+                        Resumen
+                    </a></li>
+                    <li><a href="#experiencia" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 16.5V7.5L16 12L10 16.5ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                        </svg>
+                        Experiencia
+                    </a></li>
+                    <li><a href="#logros" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" fill="currentColor"/>
+                        </svg>
+                        Logros
+                    </a></li>
+                    <li><a href="#habilidades" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 20H14V4H10V20ZM4 20H8V12H4V20ZM16 20H20V9H16V20Z" fill="currentColor"/>
+                        </svg>
+                        Habilidades
+                    </a></li>
+                    <li><a href="#proyectos" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 8V4L14 4V8H10ZM10 16V12L14 12V16H10ZM4 20V16L8 16V20H4ZM16 20V16L20 16V20H16ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                        </svg>
+                        Proyectos
+                    </a></li>
+                    <li><a href="#educacion" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3L1 9L12 15L23 9L12 3ZM12 17L1 11L12 5L23 11L12 17ZM12 19L1 13L12 7L23 13L12 19Z" fill="currentColor"/>
+                        </svg>
+                        Educación
+                    </a></li>
+                    <li><a href="#idiomas" class="nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12C2 17.52 6.47 22 11.99 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 11.99 2ZM18.5 10H14C13.45 10 13 10.45 13 11V13C13 13.55 13.45 14 14 14H18.5C18.78 14 19 13.78 19 13.5V10.5C19 10.22 18.78 10 18.5 10ZM12 20C8.69 20 6 17.31 6 14H10V10H6C6 6.69 8.69 4 12 4C15.31 4 18 6.69 18 10V14C18 17.31 15.31 20 12 20Z" fill="currentColor"/>
+                        </svg>
+                        Idiomas
+                    </a></li>
+                </ul>
+            </nav>
+            <div style="text-align: center; margin-top: calc(var(--spacing-unit) * 4);">
+                <a href="#" class="button-primary" onclick="alert('Funcionalidad de descarga no implementada en esta demo.')">
+                    Descargar CV
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="resumen" class="card">
+                <h2>Resumen</h2>
+                <p>Profesional con más de 15 años de experiencia en gestión de infraestructura, ciberseguridad y sistemas de TI. Poseo un conjunto completo de habilidades en sistemas de red, gestión de proyectos y planificación estratégica. Mi carrera se destaca por exitosas negociaciones con proveedores y actualizaciones de infraestructura que mejoraron considerablemente la estabilidad y el rendimiento del sistema. Experiencia sólida en liderazgo de equipos, implementación de metodologías ágiles (Scrum, ITIL) y mejora continua de procesos. Con dominio en Voz IP y redes, capacidad para liderar incidentes críticos (Incident Manager) y experiencia en auditorías internas y externas. Experto en ciberseguridad, incluyendo gestión de la operación diaria del área, monitoreo (SOC), SIEM, EDR, Pentesting (caja negra, gris y blanca a sistemas web, aplicaciones móviles, Cloud y desarrollos internos), identificación de vulnerabilidades (alineadas a MITRE ATT&CK), diseño de controles para mitigar y monitorear hallazgos, implementación de políticas y procesos de seguridad de la información, evaluación de la integridad, confiabilidad, disponibilidad y confidencialidad, y cumplimiento normativo como ISO 27001 y NIST. Además, cuento con conocimientos en Inteligencia Artificial (IA), familiaridad con frameworks como Scikit-learn y PyTorch, y experiencia en el desarrollo de agentes inteligentes para detección y prevención de amenazas, y automatización de procesos de procesos de seguridad.</p>
+            </section>
+
+            <section id="experiencia" class="card">
+                <h2>Experiencia Profesional</h2>
+                <!-- TUTUM -->
+                <div class="experience-item">
+                    <h3>Gerente de TI <small>en TUTUM</small></h3>
+                    <p><small>2022 - Presente | CDMX, México</small></p>
+                    <ul>
+                        <li>Supervisión de la implementación de 5 proyectos de infraestructura de TI en un plazo de 12 meses, resultando en una mejora del 30% en los tiempos de entrega.</li>
+                        <li>Gestión de presupuestos de más de 80 millones de USD, asegurando una ejecución sin desviaciones significativas.</li>
+                        <li>Implementación de Metodologías ágiles y framework de ITIL para estandarizar el trabajo interno, reduciendo un 20% de inactividad.</li>
+                        <li>Fomenté la comunicación interdepartamental, mejorando la efectividad mediante reuniones semanales y seguimiento puntual.</li>
+                        <li>Supervisé el ciclo de vida de los proyectos, garantizando que todas las actividades y tiempos fueran conocidos y seguidos.</li>
+                        <li>Colaboración en la integración de soluciones de ciberseguridad en nuevos proyectos de infraestructura, asegurando la seguridad desde el diseño.</li>
+                        <li>Evaluación de riesgos de seguridad en fases tempranas de proyectos y propuesta de soluciones proactivas.</li>
+                    </ul>
+                </div>
+                <!-- IGSA Medical -->
+                <div class="experience-item">
+                    <h3>IT Manager <small>en IGSA Medical</small></h3>
+                    <p><small>05/2020-01/2022 | CDMX, México</small></p>
+                    <ul>
+                        <li>Colaboré en la implementación de sistemas ERP, reduciendo errores en el sistema en un 30% y mejorando la eficiencia del equipo.</li>
+                        <li>Conduje revisiones periódicas de rendimiento y satisfacción del usuario, obteniendo un feedback positivo en un 90% de los casos.</li>
+                        <li>Coordiné con equipos de negocio y TI para asegurar que todas las necesidades fueran correctamente identificadas y abordadas.</li>
+                        <li>Desarrollé documentación exhaustiva y manuales de usuario, mejorando la capacitación y soporte de usuarios en un 20%.</li>
+                        <li>Implementación de un nuevo protocolo de seguridad de TI, reduciendo las vulnerabilidades del sistema en un 50%.</li>
+                        <li>Gestión de un presupuesto, optimizando la asignación de recursos y reduciendo costos en un 25%.</li>
+                        <li>Trabajé en estrecha colaboración con equipos multidisciplinarios, incluyendo desarrolladores, analistas de negocio y usuarios finales, para integrar nuevas soluciones de software que optimizaron los procesos operativos.</li>
+                        <li>Diseñé e implementé planes de mitigación, incluyendo la creación de un Plan de Continuidad del Negocio (BCP) y un Plan de Recuperación ante Desastres (DRP), que garantizaron la operatividad de los servicios esenciales durante interrupciones.</li>
+                        <li>Coordinación de infraestructura en diversos sitios.</li>
+                        <li>Participación activa en la presentación de auditorías de ciberseguridad, tanto internas como externas, garantizando el cumplimiento normativo.</li>
+                        <li>Implementación y monitoreo de soluciones de seguridad como SIEM y EDR para detección y respuesta a incidentes.</li>
+                        <li>Evaluación de proveedores de servicio de ciberseguridad y monitoreo externo.</li>
+                        <li>Liderazgo en la gestión de la operación diaria del área de ciberseguridad, supervisando equipos y procesos.</li>
+                    </ul>
+                </div>
+                <!-- Berater CHT -->
+                <div class="experience-item">
+                    <h3>IT MANAGER <small>en Berater CHT</small></h3>
+                    <p><small>01/2014-01/2020 | Toluca, México</small></p>
+                    <ul>
+                        <li>Lideré un equipo de diez ingenieros de niveles 1 y 2, logrando una mejora de un 35% en la satisfacción del usuario.</li>
+                        <li>Supervisión y mejora de la infraestructura de seguridad informática y cumplimiento normativo.</li>
+                        <li>Modernización y optimización del centro de datos para obtener la certificación ICREA II.</li>
+                        <li>Gestión de incidentes y problemas relacionados con la seguridad, asegurando una resolución oportuna.</li>
+                        <li>Supervisión del gasto en Tl asegurando una utilización óptima de los recursos.</li>
+                        <li>Lideré la gestión integral de proveedores externos, asegurando que sus servicios y entregables cumplieran con los Acuerdos de Nivel de Servicio (SLA) establecidos, incluyendo selección, evaluación, contratación y negociación de cláusulas contractuales.</li>
+                        <li>Coordinación de la implementación de políticas de seguridad de la información y controles internos.</li>
+                        <li>Implementé soluciones de continuidad del negocio, asegurando 99% de funcionalidad de infraestructura crítica.</li>
+                        <li>Coordinación de la implementación de políticas de seguridad de la información y controles internos.</li>
+                    </ul>
+                </div>
+                <!-- Elektra -->
+                <div class="experience-item">
+                    <h3>Analista de Seguridad y Redes <small>en Elektra</small></h3>
+                    <p><small>08/2010-12/2013 | CDMX, México</small></p>
+                    <ul>
+                        <li>Supervisión continua de sistemas y redes para detectar actividades sospechosas o vulnerabilidades.</li>
+                        <li>Análisis de logs, tráfico de red y alertas de seguridad para identificar posibles brechas o ataques.</li>
+                        <li>Implementación de herramientas SIEM (Security Information and Event Management) para centralizar y analizar datos de seguridad.</li>
+                        <li>Respuesta rápida y efectiva a incidentes de seguridad, incluyendo investigaciones forenses y contención de amenazas.</li>
+                        <li>Documentación detallada de incidentes y lecciones aprendidas para mejorar procesos futuros.</li>
+                        <li>Configuración y gestión de firewalls, sistemas de detección de intrusiones (IDS/IPS) y herramientas de prevención de pérdida de datos (DLP).</li>
+                        <li>Creación de materiales educativos, como guías y simulaciones de phishing, para fortalecer la cultura de seguridad en la organización.</li>
+                        <li>Configuración de routers, switches, firewalls y otros dispositivos de red para optimizar la conectividad y el flujo de datos.</li>
+                        <li>Análisis y ajuste de configuraciones de red para mejorar la velocidad, estabilidad y eficiencia.</li>
+                        <li>Realización de pruebas de estrés y capacidad para identificar cuellos de botella y planificar mejoras.</li>
+                        <li>Capacitar a usuarios finales y equipos de Tl en el uso adecuado de herramientas y recursos de red.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="logros" class="card">
+                <h2>Logros Destacados</h2>
+                <ul>
+                    <li>
+                        <h3>Liderazgo en Transformación ERP</h3>
+                        <p>Dirigí una transformación ERP a nivel empresarial que aumentó la eficiencia operativa en un 30%, mejorando los procesos de negocios y la satisfacción del usuario.</p>
+                    </li>
+                    <li>
+                        <h3>Optimización de Infraestructura IT</h3>
+                        <p>Implementé una optimización de infraestructura que redujo costos en un 20% y mejoró la disponibilidad del sistema en un 35%.</p>
+                    </li>
+                    <li>
+                        <h3>Reducción de Vulnerabilidades de Seguridad</h3>
+                        <p>Implementación de un nuevo protocolo de seguridad de TI, reduciendo las vulnerabilidades del sistema en un 50%.</p>
+                    </li>
+                    <li>
+                        <h3>Gestión de Proyectos Exitosos</h3>
+                        <p>Lideré más de 15 proyectos con una tasa de éxito del 95%, garantizando la entrega dentro del presupuesto y los plazos establecidos.</p>
+                    </li>
+                    <li>
+                        <h3>Implementación de Soluciones de Ciberseguridad Avanzadas</h3>
+                        <p>Lideré la implementación de soluciones SOC y SIEM, mejorando la detección y respuesta a amenazas en un 25%, y la integración de herramientas EDR para una protección endpoint robusta.</p>
+                    </li>
+                    <li>
+                        <h3>Desarrollo de Algoritmos de IA para Seguridad</h3>
+                        <p>Contribuí al desarrollo y optimización de algoritmos utilizando Scikit-learn y PyTorch para el análisis predictivo de amenazas y la automatización de la respuesta a incidentes.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="habilidades" class="card">
+                <h2>Habilidades</h2>
+                <div class="skills-grid">
+                    <span class="skill-tag">Administración de Redes</span>
+                    <span class="skill-tag">Servidores Windows/Linux</span>
+                    <span class="skill-tag">Agile SLA</span>
+                    <span class="skill-tag">Microsoft Azure</span>
+                    <span class="skill-tag">Microsoft 365</span>
+                    <span class="skill-tag">Active Directory/Azure AD VMware</span>
+                    <span class="skill-tag">Firewall</span>
+                    <span class="skill-tag">Metasploit MITRE ATT&CK</span>
+                    <span class="skill-tag">Análisis de Malware KPIs SIEM</span>
+                    <span class="skill-tag">SIEM</span>
+                    <span class="skill-tag">Voz IP Cisco EDR</span>
+                    <span class="skill-tag">Pentesting</span>
+                    <span class="skill-tag">Presentación De Resultados</span>
+                    <span class="skill-tag">Hyper-V Veeam EDR</span>
+                </div>
+            </section>
+
+            <section id="proyectos" class="card">
+                <h2>Proyectos</h2>
+                <a href="https://geekrovira.github.io/PONG-GAME/" target="_blank" class="project-link">
+                    <h3>PONG-GAME</h3>
+                    <p>Un clásico juego de Pong implementado en la web.</p>
+                </a>
+                <a href="https://geekrovira.github.io/QuoteGeneration/" target="_blank" class="project-link">
+                    <h3>Quote Generation</h3>
+                    <p>Aplicación para la generación de citas o frases.</p>
+                </a>
+                <a href="https://geekrovira.github.io/WannaCry/" target="_blank" class="project-link">
+                    <h3>WannaCry (Análisis/Simulación)</h3>
+                    <p>Análisis o simulación relacionada con el ransomware WannaCry.</p>
+                </a>
+                <a href="https://geekrovira.github.io/DeepFakePro/" target="_blank" class="project-link">
+                    <h3>DeepFakePro</h3>
+                    <p>Proyecto relacionado con la tecnología DeepFake.</p>
+                </a>
+            </section>
+
+            <section id="educacion" class="card">
+                <h2>Educación</h2>
+                <h3>Ingeniero en Sistemas Computacionales</h3>
+                <p>ICEL</p>
+            </section>
+
+            <section id="idiomas" class="card">
+                <h2>Idiomas</h2>
+                <ul>
+                    <li>
+                        <h3>Inglés</h3>
+                        <p>Competente</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript para el scroll suave y la activación de la navegación
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+            const sections = document.querySelectorAll('section');
+
+            // Función para el scroll suave
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Función para resaltar el elemento de navegación activo al hacer scroll
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.5 // 50% de la sección visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.id;
+                    const navLink = document.querySelector(`.sidebar-nav a[href="#${id}"]`);
+
+                    if (navLink) {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => link.classList.remove('active'));
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observar todas las secciones para el resaltado del menú
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Set initial active link on page load (e.g., for the first section)
+            if (sections.length > 0) {
+                const firstSectionId = sections[0].id;
+                const firstNavLink = document.querySelector(`.sidebar-nav a[href="#${firstSectionId}"]`);
+                if (firstNavLink) {
+                    firstNavLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
